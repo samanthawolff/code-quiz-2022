@@ -25,21 +25,21 @@
         <div class="container">
 
 
-        <section id="start-quiz" class="container mt-5 mb-5">
-            <div class="row">
-                <h1 class="col-12 mb-4 d-flex justify-content-center text-center start-title">Welcome to my JavaScript <br /> Coding Quiz!</h1>
-                <p class="col-12 d-flex justify-content-center text-center start-p">
-                    Try to answer the following JavaScript questions before time runs out! <br /> 
-                    Keep in mind that wrong answers will deduct 10 seconds from your score/time. <br />
-                    Good Luck!
-                </p>
-                <button id="start-btn" type="button" class="col-12 btn btn-dark">Start Quiz</button>    
-            </div>
-        </section>
+            <section id="start-quiz" class="container mt-5 mb-5">
+                <div class="row">
+                    <h1 class="col-12 mb-4 d-flex justify-content-center text-center start-head">Welcome to my JavaScript <br /> Coding Quiz!</h1>
+                    <p class="col-12 d-flex justify-content-center text-center start-p">
+                        Try to answer the following JavaScript questions before time runs out! <br /> 
+                        Keep in mind that wrong answers will deduct 10 seconds from your score/time. <br />
+                        Good Luck!
+                    </p>
+                    <button id="start-btn" type="button" class="col-12 btn btn-dark">Start Quiz</button>    
+                </div>
+            </section>
 
-        <section id="questions" class="container mt-5">
-            <div class="row">
-                    <h2 id="question" class="col-12 mb-4 question">This is a Placeholder Question</h2>
+            <section id="questions" class="container mt-5">
+                <div class="row">
+                    <h2 id="question" class="mb-4 question">This is a Placeholder Question</h2>
                     <ul class="col-12 align-items-center questions-list">
                         <li>
                             <button id="choice1" type="button" class="mb-3 btn btn-light">Choice One</button>
@@ -51,11 +51,26 @@
                             <button id="choice3" type="button" class="mb-3 btn btn-light">Choice Three</button>
                         </li>
                         <li>
-                            <button id="choice4" type="button" class="mb-3 btn btn-light">Choice Four</button>
+                            <button id="choice4" type="button" class=" mb-2 btn btn-light">Choice Four</button>
                         </li>
                     </ul>
-            </div>
-        </section>
+                    <p id="correct-wrong" class="font-italic c-w">Correct/Wrong Placeholder</p>
+                </div>
+            </section>
+
+            <section id="finish-quiz">
+                <div class="row">
+                    <h2 class="col-12 d-flex justify-content-center">Well Done!</h2>
+                    <p class="col-12 d-flex justify-content-center finish-p">You have completed the quiz</p>
+                    <p class="col-12 d-flex justify-content-center">Final Score: <span id="final-score" class="ml-2 font-weight-bold">100</span> </p>
+                    <p class="col-12 d-flex justify-content-center mr-3 font-weight-bold">Enter Name:<span class="ml-2"></span> <input id="name" class="rounded" placeholder="Name" /> </p>
+                    <button id="submit" type="button" class="btn btn-dark col-12 d-flex justify-content-center">Submit Score</button>
+                </div>
+            </section>
+
+
+
+
         </div>
 
         
