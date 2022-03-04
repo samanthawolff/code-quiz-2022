@@ -28,7 +28,7 @@ header {
 .c-w {
     font-size: 23px;
     color: grey;
-    border-bottom: solid 2px grey;
+    border-top: solid 2px grey;
 }
 
 .finish-p {
