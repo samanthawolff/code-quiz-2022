@@ -3,6 +3,7 @@
 // Header variables
 var viewHighscoresBtn = document.getElementById('view-highscores');
 var timerEl = document.getElementById('timer');
+var timeLeft = 70;
 
 // Start quiz section variables
 var startQuizEl = document.getElementById('start-quiz'); // id for entire section
@@ -39,7 +40,7 @@ var questions = [
             "C: <js>", 
             "D: <javascript>"
         ],  
-        correctAnswer: "B: <script>"
+        correctAnswer: "B"
     },
 
     {
@@ -50,7 +51,7 @@ var questions = [
             "C: function = myFunction()", 
             "D: function myFunction{}"
         ],
-        correctAnswer: "A: function myFunction()"
+        correctAnswer: "A"
     },
 
     {
@@ -61,7 +62,7 @@ var questions = [
             "C: if (i==5)", 
             "D: if i = 5 then"
         ],
-        correctAnswer: "C: if (i==5)"
+        correctAnswer: "C"
     },
 
     {
@@ -72,7 +73,7 @@ var questions = [
             "C: onmouseover", 
             "D: onclick"
         ],
-        correctAnswer: "D: onclick"
+        correctAnswer: "D"
     },
 
     {
@@ -83,7 +84,7 @@ var questions = [
             "C: var carName;", 
             "D: carName;"
         ],
-        correctAnswer: "C: var carName;"
+        correctAnswer: "C"
     },
 
     {
@@ -94,7 +95,7 @@ var questions = [
             "C: -", 
             "D: *"
         ],
-        correctAnswer: "A: ="
+        correctAnswer: "A"
     }
 ];
 
@@ -104,7 +105,7 @@ highscoresEl.style.display = "none";
 
 // timer function 
 function countdown() {
-    var timeLeft = 70;
+    //var timeLeft = 70;
   
     var timeInterval = setInterval(function () {
       
@@ -116,7 +117,7 @@ function countdown() {
         clearInterval(timeInterval);
       } 
     }, 1000);
-  }
+  };
 
   // start quiz function
   function startQuiz() {
@@ -127,7 +128,7 @@ function countdown() {
       
       countdown();
       setQuestion(questionCount);
-  }
+  };
 
   // questions function
   function setQuestion(id) {
@@ -137,10 +138,28 @@ function countdown() {
         choice2Btn.textContent = questions[id].answers[1];
         choice3Btn.textContent = questions[id].answers[2];
         choice4Btn.textContent = questions[id].answers[3];
+    };
+};
+
+// check answer and move to next question function
+
+function checkAnswer() {
+    correctWrong.style.display = "block"
+
+    if (questions.correctAnswer === questions.correctAnswer) {
+        correctWrong.textContent = "Correct!";
     }
-}
+    else if (questions.correctAnswer != questions.correctAnswer) {
+        timeLeft = timeLeft - 10;
+        correctWrong.textContent = "Wrong!";
+    };
 
+    if (questionCount < questions.length) {
+        questionCount++;
+    };
 
+    setQuestion(questionCount);
+};
 
 
   startBtn.addEventListener("click", startQuiz);
