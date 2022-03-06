@@ -1,34 +1,33 @@
 // Define all variables
 
 // Header variables
-var viewHighscoresBtn = $('#view-highscores');
-var timer = $('#timer'); // setInterval countdown
-var timeLeft = 100;
+var viewHighscoresBtn = document.getElementById('view-highscores');
+var timerEl = document.getElementById('timer');
 
 // Start quiz section variables
-var startQuizEl = $('#start-quiz'); // id for entire section
-var startBtn = $('#start-btn');
+var startQuizEl = document.getElementById('start-quiz'); // id for entire section
+var startBtn = document.getElementById('start-btn');
 
 // Questions section variables
-var questionsEl = $('#questions'); // id for entire section
-var question = $('#question'); 
-var choice1Btn = $('#choice1'); // button
-var choice2Btn = $('#choice2'); // button
-var choice3Btn = $('#choice3'); // button
-var choice4Btn = $('#choice4'); // button
-var correctWrong = $('#correct-wrong'); 
+var questionsEl = document.getElementById('questions'); // id for entire section
+var question = document.getElementById('question'); 
+var choice1Btn = document.getElementById('choice1'); // button
+var choice2Btn = document.getElementById('choice2'); // button
+var choice3Btn = document.getElementById('choice3'); // button
+var choice4Btn = document.getElementById('choice4'); // button
+var correctWrong = document.getElementById('correct-wrong'); 
 
 // Finish quiz section variables
-var finishQuizEl = $('#finish-quiz'); // id for entire section
-var finalScore = $('#final-score');
-var name = $('#input-name');
-var submitScoreBtn = $('#submit-score'); // button
+var finishQuizEl = document.getElementById('finish-quiz'); // id for entire section
+var finalScore = document.getElementById('final-score');
+var name = document.getElementById('input-name');
+var submitScoreBtn = document.getElementById('submit-score'); // button
 
 // Highscore section variables
-var highscoresEl = $('#highscores'); // id for entire section
-var highscoreList = $('#highscore-list');
-var goBackBtn = $('#go-back'); // button
-var clearHighscoresBtn = $('#clear-highscores'); //button
+var highscoresEl = document.getElementById('highscores'); // id for entire section
+var highscoreList = document.getElementById('highscore-list');
+var goBackBtn = document.getElementById('go-back'); // button
+var clearHighscoresBtn = document.getElementById('clear-highscores'); //button
 
 // Questions, answers, and correct answers
 var questions = [
@@ -68,4 +67,39 @@ var questions = [
         correctAnswer: "A"
     }
 ];
+
+questionsEl.style.display = "none";
+finishQuizEl.style.display = "none";
+highscoresEl.style.display = "none";
+
+// timer function 
+function countdown() {
+    var timeLeft = 70;
+  
+    var timeInterval = setInterval(function () {
+      
+      if (timeLeft > 0) {
+        timerEl.textContent = timeLeft + "s";
+        timeLeft--;
+      } else if (timeLeft <= 0 ) {
+        timerEl.textContent = "Time's Up!";
+        clearInterval(timeInterval);
+      } 
+    }, 1000);
+  }
+
+  // start quiz function
+  function startQuiz() {
+      startQuizEl.style.display = "none";
+      correctWrong.style.display = "none";
+      questionsEl.style.display = "block";
+      
+      countdown();
+  }
+
+  startBtn.addEventListener("click", startQuiz);
+  
+  
+
+
 
