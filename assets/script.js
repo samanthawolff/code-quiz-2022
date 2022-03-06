@@ -33,38 +33,68 @@ var clearHighscoresBtn = document.getElementById('clear-highscores'); //button
 var questions = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
-        answers: ["A. <scripting>", "B. <script>", "C. <js>", "D. <javascript>"],
-        correctAnswer: "B"
+        answers: [
+            "A: <scripting>", 
+            "B: <script>", 
+            "C: <js>", 
+            "D: <javascript>"
+        ],  
+        correctAnswer: "B: <script>"
     },
 
     {
         question: "How do you create a function in JavaScript?",
-        answers: ["A. function myFunction()", "B. function:myFunction()", "C. function = myFunction()", "D. function myFunction{}"],
-        correctAnswer: "A"
+        answers: [
+            "A: function myFunction()", 
+            "B: function:myFunction()", 
+            "C: function = myFunction()", 
+            "D: function myFunction{}"
+        ],
+        correctAnswer: "A: function myFunction()"
     },
 
     {
         question: "How do you write an IF statement in JavaScript?",
-        answers: ["A. if i = 5", "B. if i == 5 then", "C. if (i==5)", "D. if i = 5 then"],
-        correctAnswer: "C"
+        answers: [
+            "A: if i = 5",
+            "B: if i == 5 then", 
+            "C: if (i==5)", 
+            "D: if i = 5 then"
+        ],
+        correctAnswer: "C: if (i==5)"
     },
 
     {
         question: "Which event occurs when the user clicks on an HTML element?",
-        answers: ["A. onchange", "B. onmouseclick", "C. onmouseover", "D. onclick"],
-        correctAnswer: "D"
+        answers: [
+            "A: onchange", 
+            "B: onmouseclick", 
+            "C: onmouseover", 
+            "D: onclick"
+        ],
+        correctAnswer: "D: onclick"
     },
 
     {
         question: "How do you declare a JavaScript variable?",
-        answers: ["A. v carName;", "B. variable carName;", "C. var carName;", "D. carName;"],
-        correctAnswer: "C"
+        answers: [
+            "A: v carName:", 
+            "B: variable carName;", 
+            "C: var carName;", 
+            "D: carName;"
+        ],
+        correctAnswer: "C: var carName;"
     },
 
     {
         question: "Which operator is used to assign a value to a variable?",
-        answers: ["A. =", "B. x", "C. -", "D. *"],
-        correctAnswer: "A"
+        answers: [
+            "A: =", 
+            "B: x", 
+            "C: -", 
+            "D: *"
+        ],
+        correctAnswer: "A: ="
     }
 ];
 
@@ -93,11 +123,31 @@ function countdown() {
       startQuizEl.style.display = "none";
       correctWrong.style.display = "none";
       questionsEl.style.display = "block";
+      questionCount = 0;
       
       countdown();
+      setQuestion(questionCount);
   }
 
+  // questions function
+  function setQuestion(id) {
+    if (id < questions.length) {
+        question.textContent = questions[id].question;
+        choice1Btn.textContent = questions[id].answers[0];
+        choice2Btn.textContent = questions[id].answers[1];
+        choice3Btn.textContent = questions[id].answers[2];
+        choice4Btn.textContent = questions[id].answers[3];
+    }
+}
+
+
+
+
   startBtn.addEventListener("click", startQuiz);
+  choice1Btn.addEventListener("click", checkAnswer);
+  choice2Btn.addEventListener("click", checkAnswer);
+  choice3Btn.addEventListener("click", checkAnswer);
+  choice4Btn.addEventListener("click", checkAnswer);
   
   
 
