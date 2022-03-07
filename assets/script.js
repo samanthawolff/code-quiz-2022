@@ -5,9 +5,11 @@ var viewHighscoresBtn = document.getElementById('view-highscores');
 var timerEl = document.getElementById('timer');
 var timeLeft = 70;
 
+
 // Start quiz section variables
 var startQuizEl = document.getElementById('start-quiz'); // id for entire section
 var startBtn = document.getElementById('start-btn');
+
 
 // Questions section variables
 var questionsEl = document.getElementById('questions'); // id for entire section
@@ -16,7 +18,8 @@ var choice1Btn = document.getElementById('choice1'); // button
 var choice2Btn = document.getElementById('choice2'); // button
 var choice3Btn = document.getElementById('choice3'); // button
 var choice4Btn = document.getElementById('choice4'); // button
-var correctWrong = document.getElementById('correct-wrong'); 
+var correctWrong = document.getElementById('correct-wrong');
+
 
 // Finish quiz section variables
 var finishQuizEl = document.getElementById('finish-quiz'); // id for entire section
@@ -24,11 +27,12 @@ var finalScore = document.getElementById('final-score');
 var name = document.getElementById('input-name');
 var submitScoreBtn = document.getElementById('submit-score'); // button
 
+
 // Highscore section variables
 var highscoresEl = document.getElementById('highscores'); // id for entire section
-var highscoreList = document.getElementById('highscore-list');
 var goBackBtn = document.getElementById('go-back'); // button
 var clearHighscoresBtn = document.getElementById('clear-highscores'); //button
+
 
 // Questions, answers, and correct answers
 var questions = [
@@ -99,14 +103,15 @@ var questions = [
     }
 ];
 
+
+// blocking out unnecessary sections
 questionsEl.style.display = "none";
 finishQuizEl.style.display = "none";
 highscoresEl.style.display = "none";
 
+
 // timer function 
 function countdown() {
-    //var timeLeft = 70;
-  
     var timeInterval = setInterval(function () {
       
       if (timeLeft > 0) {
@@ -119,6 +124,7 @@ function countdown() {
     }, 1000);
   };
 
+
   // start quiz function
   function startQuiz() {
       startQuizEl.style.display = "none";
@@ -129,6 +135,7 @@ function countdown() {
       countdown();
       setQuestion(questionCount);
   };
+
 
   // questions function
   function setQuestion(id) {
@@ -141,8 +148,8 @@ function countdown() {
     };
 };
 
-// check answer and move to next question function
 
+// check answer and move to next question function
 function checkAnswer() {
     correctWrong.style.display = "block"
 
@@ -161,6 +168,9 @@ function checkAnswer() {
     setQuestion(questionCount);
 };
 
+
+
+// All event listeners
 
   startBtn.addEventListener("click", startQuiz);
   choice1Btn.addEventListener("click", checkAnswer);
